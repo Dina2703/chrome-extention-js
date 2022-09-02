@@ -21,3 +21,13 @@ button {
   color: white;
   font-weight: bold;
 }
+
+.card {
+  height: 200px;
+  width: 200px;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
