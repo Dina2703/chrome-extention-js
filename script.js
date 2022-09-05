@@ -5,7 +5,25 @@ const ulEl = document.getElementById("ul-el");
 saveBtn.addEventListener("click", saveFunc);
 inputEl.addEventListener("input", inputFunc);
 
-const myLeads = [];
+// save to local storage. localStorage.setItem(key, value)
+// localStorage.setItem("key", "test");
+// console.log(localStorage.getItem("key"));
+// localStorage.clear();
+// HOW TO STORE AN ARRAY IN LOCALSTORAGE  - localStorage only supports strings. Use JSON.stringify() (turns an array into string) and JSON.parse() (turns a string into an array). example:
+// var names = [];
+// names[0] = "Dina";
+// localStorage.setItem("names", JSON.stringify(names));
+// var storedNames = JSON.parse(localStorage.getItem("names"));
+// console.log(storedNames);
+
+// let myLeads = `["www.awesomelead.com"]`;
+// console.log(typeof myLeads);
+
+// myLeads = JSON.parse(myLeads);
+// console.log(typeof myLeads);
+
+// myLeads.push("www.epicland,com");
+// console.log(myLeads);
 
 function inputFunc() {}
 
@@ -25,11 +43,3 @@ function renderLeads() {
   }
   ulEl.innerHTML = listItems;
 }
-
-const recipient = "James";
-
-const email = `
-Hey ${recipient}! 
-How is it going? 
-Cheers `;
-console.log(email);
