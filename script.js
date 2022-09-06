@@ -3,36 +3,27 @@ const inputEl = document.querySelector("#input-el");
 const ulEl = document.getElementById("ul-el");
 
 saveBtn.addEventListener("click", saveFunc);
-inputEl.addEventListener("input", inputFunc);
 
 // save to local storage. localStorage.setItem(key, value)
-// localStorage.setItem("key", "test");
-// console.log(localStorage.getItem("key"));
-// localStorage.clear();
-// HOW TO STORE AN ARRAY IN LOCALSTORAGE  - localStorage only supports strings. Use JSON.stringify() (turns an array into string) and JSON.parse() (turns a string into an array). example:
-// var names = [];
-// names[0] = "Dina";
-// localStorage.setItem("names", JSON.stringify(names));
-// var storedNames = JSON.parse(localStorage.getItem("names"));
-// console.log(storedNames);
 
-// let myLeads = `["www.awesomelead.com"]`;
-// console.log(typeof myLeads);
+let myLeads = [];
 
-// myLeads = JSON.parse(myLeads);
-// console.log(typeof myLeads);
+let leadsFromLocalStorage = JSON.parse(localStorage.getItem("leads"));
+console.log(leadsFromLocalStorage);
 
-// myLeads.push("www.epicland,com");
-// console.log(myLeads);
-
-function inputFunc() {}
+if (leadsFromLocalStorage) {
+  myLeads = leadsFromLocalStorage;
+  renderLeads();
+}
 
 function saveFunc() {
   let newLead = inputEl.value;
   myLeads.push(newLead);
-  renderLeads();
-  console.log(myLeads);
   inputEl.value = "";
+  localStorage.setItem("leads", JSON.stringify(myLeads));
+  renderLeads();
+  // console.log(myLeads);
+  console.log(localStorage.getItem("leads"));
 }
 
 function renderLeads() {
