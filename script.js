@@ -25,10 +25,9 @@ function saveTabFunc() {
   //get the current tab url using Chrome API
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     //add newly url from tab into myLeads arr, save it into localStoraga, then render the array.
-    const newLead = tabs[0].url;
-    myLeads.push(newLead);
-    inputEl.value = "";
-    localStorage.setItem("leads", JSON.stringify(newLead));
+
+    myLeads.push(tabs[0].url);
+    localStorage.setItem("leads", JSON.stringify(myLeads));
     render(myLeads);
   });
 }
